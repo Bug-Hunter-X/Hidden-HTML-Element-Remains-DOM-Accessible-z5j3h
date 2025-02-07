@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Uncommon HTML Bug Solution</title>
+</head>
+<body>
+  <div id="myDiv">
+    This text is initially visible.
+  </div>
+  <button onclick="myFunction()">Click Me</button>
+
+  <script>
+    function myFunction() {
+      const div = document.getElementById("myDiv");
+      div.parentNode.removeChild(div); //Correct approach
+
+      setTimeout(function() {
+        // Attempting to access the removed element will result in an error.
+        //document.getElementById("myDiv").innerHTML = "This text will NOT reappear.";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
